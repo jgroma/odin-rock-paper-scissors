@@ -11,16 +11,22 @@ function computerPlay() {
 //plays a single round of game
 function playRound() {
     if (playerSelection == "Rock" && computerSelection == "Scissors" || playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Scissors" && computerSelection == "Paper") {
+        //roundsPlayed += 1;
         playerScore += 1;
         //console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
         roundResult.innerHTML = `You win! ${playerSelection} beats ${computerSelection}!`;
+        score.innerHTML = `Player score: ${playerScore}  Computer score: ${computerScore}`;
     } else if (playerSelection == computerSelection) {
         //console.log(`${playerSelection} and ${computerSelection}. It's a tie!`);
+        //roundsPlayed += 1;
         roundResult.innerHTML = `${playerSelection} and ${computerSelection}. It's a tie!`;
+        score.innerHTML = `Player score: ${playerScore}  Computer score: ${computerScore}`;
     } else {
+        //roundsPlayed += 1;
         computerScore += 1;
         //console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
         roundResult.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}.`;
+        score.innerHTML = `Player score: ${playerScore}  Computer score: ${computerScore}`;
     }
 }
 
@@ -64,12 +70,22 @@ let roundsPlayed = 0;
 
 //game();
 
+//function checkScore {
+    //if (roundsPlayed == 5 && playerScore > computerScore) {
+      //  roundResult.innerHTML = "Congratulations! You won the game.";
+   // } else if (roundsPlayed == 5 && playerScore > computerScore) {
+     //   roundResult.innerHTML = "Game over. You lost the game.";
+   //}
+//};
+
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     //alert("You chose rock");
     playerSelection = "Rock";
     computerSelection = computerPlay();
     playRound();
+    roundsPlayed += 1;
+    roundNumber.innerHTML = `Round: ${roundsPlayed}`;
     //console.log(computerPlay());
     //console.log(playerSelection);
     //console.log(computerSelection);
@@ -80,6 +96,8 @@ paper.addEventListener('click', () => {
     playerSelection = "Paper";
     computerSelection = computerPlay();
     playRound();
+    roundsPlayed += 1;
+    roundNumber.innerHTML = `Round: ${roundsPlayed}`;
 });
 
 const scissors = document.querySelector('#scissors');
@@ -87,6 +105,8 @@ scissors.addEventListener('click', () => {
     playerSelection = "Scissors";
     computerSelection = computerPlay();
     playRound();
+    roundsPlayed += 1;
+    roundNumber.innerHTML = `Round: ${roundsPlayed}`;
 });
 
 
@@ -94,3 +114,5 @@ const roundResult = document.querySelector('.round-result');
 
 
 const score = document.querySelector('.score');
+
+const roundNumber = document.querySelector('.round-number');
