@@ -42,7 +42,7 @@ function playRound() {
         //console.log(`${playerSelection} and ${computerSelection}. It's a tie!`);
         //roundsPlayed += 1;
        // roundResult.innerHTML = `${playerSelection} and ${computerSelection}. It's a tie!`;
-        score.innerHTML = `Player score: ${playerScore}  Computer score: ${computerScore}`;
+        //score.innerHTML = `Player score: ${playerScore}  Computer score: ${computerScore}`;
    // } else {
         //roundsPlayed += 1;
         //computerScore += 1;
@@ -97,7 +97,7 @@ function checkScore() {
         winOrLose.innerHTML = "Congratulations! You won the game.";
     } else if (roundsPlayed == 5 && playerScore < computerScore) {
         winOrLose.innerHTML = "Game over. You lost the game.";
-   } else {
+   } else if (roundsPlayed == 5 && playerScore == computerScore) {
         winOrLose.innerHTML = "It's a tie! No one won the game.";
    }
 };
@@ -116,6 +116,7 @@ rock.addEventListener('click', () => {
     //if (roundsPlayed == 5){
     //    checkScore();
     //}
+    checkScore();
 });
 
 const paper = document.querySelector('#paper');
@@ -125,6 +126,7 @@ paper.addEventListener('click', () => {
     playRound();
     //roundsPlayed += 1;
     roundNumber.innerHTML = `Round: ${roundsPlayed}`;
+    checkScore();
 });
 
 const scissors = document.querySelector('#scissors');
@@ -134,6 +136,7 @@ scissors.addEventListener('click', () => {
     playRound();
     //roundsPlayed += 1;
     roundNumber.innerHTML = `Round: ${roundsPlayed}`;
+    checkScore();
 });
 
 
