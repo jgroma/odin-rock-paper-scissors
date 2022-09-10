@@ -10,7 +10,7 @@ function computerPlay() {
 
 //plays a single round of game
 function playRound() {
-    if (roundsPlayed == 5) {
+    if (playerScore == 5 || computerScore == 5) {
         checkScore();
     } else {
         if (playerSelection == "Rock" && computerSelection == "Scissors" || playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Scissors" && computerSelection == "Paper") {
@@ -93,11 +93,11 @@ let roundsPlayed = 0;
 //game();
 
 function checkScore() {
-    if (roundsPlayed == 5 && playerScore > computerScore) {
+    if ((playerScore == 5 || computerScore == 5) && playerScore > computerScore) {
         winOrLose.innerHTML = "Congratulations! You won the game.";
-    } else if (roundsPlayed == 5 && playerScore < computerScore) {
+    } else if ((playerScore == 5 || computerScore == 5) && playerScore < computerScore) {
         winOrLose.innerHTML = "Game over. You lost the game.";
-   } else if (roundsPlayed == 5 && playerScore == computerScore) {
+   } else if ((playerScore == 5 || computerScore == 5) && playerScore == computerScore) {
         winOrLose.innerHTML = "It's a tie! No one won the game.";
    }
 };
